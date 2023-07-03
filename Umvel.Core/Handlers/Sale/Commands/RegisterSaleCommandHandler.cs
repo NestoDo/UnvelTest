@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Umvel.Contracts.DTO.Sale;
+using Umvel.Contracts.Messages;
 using Umvel.Infrastructure.Data.Repositories.Interfaces;
 using Model = Umvel.Infrastructure.Database.Models;
 
@@ -21,11 +22,14 @@ namespace Umvel.Core.Handlers.Sale.Commands
 
         public async Task<RegisterSaleResponse> Handle(RegisterSaleCommand request, CancellationToken cancellationToken)
         {
+            if (request == null)
+                throw new Exception(MessageConstants.RegisterSaleCommandNull);
+
             var requestModel = request.model;
 
-            var sale = _mapper.Map<Model.Sale>(requestModel);
+            var saleModel = _mapper.Map<Model.Sale>(requestModel);
 
-            _saleRepository.Add(sale);
+            var sale = _saleRepository.Add(saleModel);
 
             return _mapper.Map<RegisterSaleResponse>(sale);
         }

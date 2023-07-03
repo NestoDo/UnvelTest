@@ -26,6 +26,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{627B
 		CreateDatabaseSchema.sql = CreateDatabaseSchema.sql
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{B499C4FA-A38A-4F86-82A7-82A6527BDAD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umvel.UnitTests", "Umvel.UnitTests\Umvel.UnitTests.csproj", "{A11EC407-7415-472E-A791-39CD278CE817}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +60,10 @@ Global
 		{00FDCA0A-2FFD-4F11-83C2-8F590D5329DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00FDCA0A-2FFD-4F11-83C2-8F590D5329DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00FDCA0A-2FFD-4F11-83C2-8F590D5329DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A11EC407-7415-472E-A791-39CD278CE817}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A11EC407-7415-472E-A791-39CD278CE817}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A11EC407-7415-472E-A791-39CD278CE817}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A11EC407-7415-472E-A791-39CD278CE817}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +75,7 @@ Global
 		{A09BB393-B959-4D7A-9F76-9721F4D2B9A0} = {9AE28329-E93B-4E80-80FD-068A0F4793F3}
 		{0C7D4016-0F23-4481-8E47-9151BFEF0AFE} = {9AE28329-E93B-4E80-80FD-068A0F4793F3}
 		{00FDCA0A-2FFD-4F11-83C2-8F590D5329DE} = {C213A084-9AAA-490D-B078-A611FD6604C0}
+		{A11EC407-7415-472E-A791-39CD278CE817} = {B499C4FA-A38A-4F86-82A7-82A6527BDAD3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A7060805-7E77-426F-868E-54B88C3238F0}

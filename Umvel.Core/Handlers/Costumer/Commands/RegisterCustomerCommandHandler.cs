@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Umvel.Contracts.DTO.Customer;
+using Umvel.Contracts.Messages;
 using Umvel.Infrastructure.Repositories.Interfaces;
 using Model = Umvel.Infrastructure.Database.Models;
 
@@ -21,11 +22,14 @@ namespace Umvel.Core.Handlers.Customer.Commands
 
         public async Task<RegisterCustomerResponse> Handle(RegisterCustomerCommand request, CancellationToken cancellationToken)
         {
+            if (request == null)
+                throw new Exception(MessageConstants.RegisterCustomerCommandNull);
+
             var requestModel = request.model;
 
-            var customer = _mapper.Map<Model.Customer>(requestModel);
+            var customerModel = _mapper.Map<Model.Customer>(requestModel);
 
-            _customerRepository.Add(customer);          
+            var customer = _customerRepository.Add(customerModel);          
 
             return _mapper.Map<RegisterCustomerResponse>(customer);
         }

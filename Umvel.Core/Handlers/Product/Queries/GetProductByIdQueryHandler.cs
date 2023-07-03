@@ -1,10 +1,5 @@
 ﻿using AutoMapper;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Umvel.Contracts.DTO.Product;
 using Umvel.Infrastructure.Data.Repositories.Interfaces;
 using Model = Umvel.Infrastructure.Database.Models;

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Umvel.Contracts.DTO.Product;
+using Umvel.Contracts.Messages;
 using Umvel.Infrastructure.Data.Repositories.Interfaces;
 using Model = Umvel.Infrastructure.Database.Models;
 
@@ -26,11 +27,14 @@ namespace Umvel.Core.Handlers.Product.Commands
 
         public async Task<RegisterProductResponse> Handle(RegisterProductCommand request, CancellationToken cancellationToken)
         {
+            if (request == null)
+                throw new Exception(MessageConstants.RegisterProductCommandNull);
+
             var requestModel = request.model;
 
-            var product = _mapper.Map<Model.Product>(requestModel);
+            var productModel = _mapper.Map<Model.Product>(requestModel);
 
-            _productRepository.Add(product);
+            var product =_productRepository.Add(productModel);
 
             return _mapper.Map<RegisterProductResponse>(product);
         }
