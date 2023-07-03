@@ -27,7 +27,7 @@ namespace Umvel.Infrastructure.Data.Repositories
 
         public IEnumerable<Sale> GetSaleByDateRange(DateTime StartDate, DateTime EndDate)
         {
-            return _context.Sales.Where(s => s.Date >= StartDate && s.Date <= EndDate);
+            return _context.Sales.Where(s => s.Date.Date >= StartDate.Date && s.Date.Date <= EndDate.Date);
         }
     }
 }
