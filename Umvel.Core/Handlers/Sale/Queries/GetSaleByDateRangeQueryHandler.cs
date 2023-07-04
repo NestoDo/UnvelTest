@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Umvel.Contracts.DTO.Sale;
+using Umvel.Core.Extensions;
 using Umvel.Infrastructure.Data.Repositories.Interfaces;
 using Model = Umvel.Infrastructure.Database.Models;
 
@@ -21,7 +22,7 @@ namespace Umvel.Core.Handlers.Sale.Queries
 
         public async Task<IEnumerable<GetSaleResponse>> Handle(GetSaleQuery request, CancellationToken cancellationToken)
         {
-            IEnumerable<Model.Sale> saleList = _saleRepository.GetSaleByDateRange(request.startDate, request.endDate);
+            IEnumerable<Model.Sale> saleList = _saleRepository.GetSaleByDateRange(request.startDate.Default(), request.endDate.Default());
 
             return _mapper.Map<IEnumerable<GetSaleResponse>>(saleList);
         }
